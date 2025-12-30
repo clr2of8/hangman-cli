@@ -52,7 +52,10 @@ HANGMAN_PICS = [
     """
 ]
 
-WORDS = ["python", "hangman", "challenge", "programming", "openai", "computer", "science"]
+
+def load_words(filename):
+    with open(filename, 'r') as f:
+        return [line.strip() for line in f if line.strip()]
 
 def get_random_word(word_list):
     return random.choice(word_list)
@@ -83,9 +86,10 @@ def play_again():
     return input("Do ye want to play again, or be ye scared? (aye or nay): ").lower().startswith('y')
 
     print("ARRR! Welcome to Hangman, ye salty dog!")
+    words = load_words('words.txt')
     missed_letters = []
     correct_letters = []
-    secret_word = get_random_word(WORDS)
+    secret_word = get_random_word(words)
     game_is_done = False
 
     while True:
@@ -108,7 +112,7 @@ def play_again():
             if play_again():
                 missed_letters = []
                 correct_letters = []
-                secret_word = get_random_word(WORDS)
+                secret_word = get_random_word(words)
                 game_is_done = False
             else:
                 print("Fair winds and following seas, matey!")

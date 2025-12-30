@@ -1,6 +1,7 @@
 # Hangman Game in PowerShell (No ASCII Art)
 
-$words = @("python", "hangman", "challenge", "programming", "openai", "computer", "science")
+
+$words = Get-Content -Path "words.txt"
 
 function Get-RandomWord {
     param($wordList)
