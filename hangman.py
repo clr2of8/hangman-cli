@@ -1,55 +1,77 @@
 import random
 
 HANGMAN_PICS = [
-    """
-     +---+
-         |
-         |
-         |
-       ===
-    """,
-    """
-     +---+
-     O   |
-         |
-         |
-       ===
-    """,
-    """
-     +---+
-     O   |
-     |   |
-         |
-       ===
-    """,
-    """
-     +---+
-     O   |
-    /|   |
-         |
-       ===
-    """,
-    """
-     +---+
-     O   |
-    /|\  |
-         |
-       ===
-    """,
-    """
-     +---+
-     O   |
-    /|\  |
-    /    |
-       ===
-    """,
-    """
-     +---+
-     O   |
-    /|\  |
-    / \  |
-       ===
-    """
+        r"""
+            _~_
+        _|   |_   
+     |       |   
+     |       |   
+     |       |   
+     |           
+    /_\        
+    Pirate Ship Awaits...
+        """,
+        r"""
+            _~_
+        _|   |_   
+     |       |   
+     |       |   
+     |       |   
+     |      ( )  
+    /_\        
+    A pirate's head appears!
+        """,
+        r"""
+            _~_
+        _|   |_   
+     |       |   
+     |       |   
+     |       |   
+     |     _/ )  
+    /_\   ( )    
+    Arrr! An arm joins the crew!
+        """,
+        r"""
+            _~_
+        _|   |_   
+     |       |   
+     |       |   
+     |       |   
+     |    _/ )_  
+    /_\   ( )    
+    Both arms, matey!
+        """,
+        r"""
+            _~_
+        _|   |_   
+     |       |   
+     |       |   
+     |       |   
+     |    _/ )_  
+    /_\   ( )/|  
+    A hook hand! Beware!
+        """,
+        r"""
+            _~_
+        _|   |_   
+     |       |   
+     |       |   
+     |       |   
+     |    _/ )_  
+    /_\   ( )/|\
+    Peg leg appears!
+        """,
+        r"""
+            _~_
+        _|   |_   
+     |       |   
+     |       |   
+     |       |   
+     |    _/ )_  
+    /_\   ( )/|\
+                 / \
+    The pirate walks the plank!
+        """
 ]
 
 
@@ -85,6 +107,7 @@ def get_guess(already_guessed):
 def play_again():
     return input("Do ye want to play again, or be ye scared? (aye or nay): ").lower().startswith('y')
 
+def main():
     print("ARRR! Welcome to Hangman, ye salty dog!")
     words = load_words('words.txt')
     missed_letters = []
